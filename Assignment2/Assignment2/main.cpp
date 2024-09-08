@@ -12,10 +12,11 @@ int main()
     double totalTax = stateTax + countyTax;
     double totalPayment = totalSales + totalTax;
     
-    std::cout<<"Total Sales: "<< totalSales<<"\n";
-    std::cout<<"State Tax: "<<stateTax<<"\n";
-    std::cout<<"County Tax: "<<countyTax<<"\n";
-    std::cout<<"Total Tax: "<<totalTax<<"\n";
+    std::cout<<"Total Sales: $"<< totalSales<<"\n";
+    std::cout<<"State Tax: $"<<stateTax<<"\n";
+    std::cout<<"County Tax: $"<<countyTax<<"\n";
+    std::cout<<"Total Tax: $"<<totalTax<<"\n";
+    std::cout<<"Total Tax: $"<<totalPayment<<"\n";
     
     return 0;
 }
