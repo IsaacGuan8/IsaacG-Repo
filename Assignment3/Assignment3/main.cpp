@@ -1,14 +1,20 @@
-//
-//  main.cpp
-//  Assignment3
-//
-//  Created by Isaac Guan on 9/13/24.
-//
+# include <iostream>
+# include <cstdlib>
+# include <ctime>
 
-#include <iostream>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main(){
+    const int MIN_VALUE = 1;
+    const int MAX_VALUE = 6;
+    
+    long timeSeconds = time(0);
+    srand(timeSeconds);
+    
+    int dice1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+    int dice2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+    
+    cout<<"Value one: "<< dice1 <<"\n";
+    cout<<"Value two: "<< dice2;
     return 0;
 }
