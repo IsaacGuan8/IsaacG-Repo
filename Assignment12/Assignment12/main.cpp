@@ -1,14 +1,18 @@
-//
-//  main.cpp
-//  Assignment12
-//
-//  Created by Isaac Guan on 9/16/24.
-//
-
 #include <iostream>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main() {
+    int factorial = 1;
+    int num;
+    
+    cout << "What number do you want to factorial?: ";
+    cin >> num;
+    
+    for(int i = 1; i <= num; i++){
+        factorial = factorial * i;
+    }
+    
+    cout << factorial << endl;
+    
     return 0;
 }
