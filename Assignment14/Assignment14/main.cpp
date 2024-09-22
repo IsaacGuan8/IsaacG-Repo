@@ -1,14 +1,24 @@
-//
-//  main.cpp
-//  Assignment14
-//
-//  Created by Isaac Guan on 9/17/24.
-//
-
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+int main() {
+    srand(time(0));
+    int secret = rand() % 100 + 1;
+    int guess = 0;
+    
+    while(guess != secret){
+        cout << "what is the secret number?: "<< endl;
+        cin >> guess;
+        
+        if(guess > secret){
+            cout << "The guess is too large" << endl;
+        } else if (guess < secret){
+            cout << "The guess is too small" << endl;
+        } else {
+            cout << "Congrats the number is: " << secret << endl;
+        }
+    }
     return 0;
 }
