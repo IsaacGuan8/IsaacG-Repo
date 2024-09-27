@@ -3,28 +3,29 @@
 using namespace std;
 
 
-int number(){
-    int number = 10;
-    return number;
-}
-int main(){
-    /*int row;
-    
-    cout <<"How many rows" << endl;
-    cin >> row;
-    cout<<endl;
-    
-    for(int x = 1; x <= row ;x++)
+/*int max(int num1, int num2)
+{
+    if (num1 > num2)
     {
-        for(int y = 1; y <= x; y++){
-            cout << "*";
-        }
-        cout<<endl;
-    }*/
+        return num1;
+    }else{
+        return num2;
+    }
+}*/
+
+double increasePrice(double& price)
+{
+    return price * 1.2;
+}
+
+int main(){
+    /*int firstNum = 4;
+    int secondNum = 2;
     
-    int n = number();
-    cout<< n <<endl;
-    
-    
+    cout << max(firstNum, secondNum) << endl;*/
+    double price = 100;
+    cout << increasePrice(price);
+    cout << price << endl;
     return 0;
+    
 }
