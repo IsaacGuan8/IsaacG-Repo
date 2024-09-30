@@ -1,9 +1,11 @@
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
-
+// Temperature convertion functions
 double celsiusToFahrenheit(double celsius)
 {
     return (celsius * 9 / 5) + 32;
@@ -24,61 +26,7 @@ double kelvinToCelsius(double kelvin)
     return kelvin - 273.15;
 }
 
-double kelvinGlobalConverter(double temperature, const char unit){
-
-    switch(unit)
-    {
-        case 'F': case 'f':
-            return celsiusToKelvin(kelvinToCelsius(temperature));
-            break;
-            
-        case 'C': case 'c':
-            return kelvinToCelsius(temperature);
-            break;
-            
-        default:
-            cout << "please, input a valid temperature (F or C)" << endl;
-            return 0;
-            break;
-    }
-}
-
-double celsiusGlobalConverter(double temperature, const char unit){
-    switch(unit)
-    {
-        case 'K': case 'k':
-            return celsiusToKelvin(temperature);
-            break;
-            
-        case 'F': case 'f':
-            return fahrenheitToCelsius(temperature);
-            break;
-            
-        default:
-            cout << "please, input a valid temperature (K or C)" << endl;
-            return 0;
-            break;
-    }
-}
-
-double fahrenheitGlobalConverter(double temperature, const char unit){
-    switch(unit)
-    {
-        case 'C': case 'c':
-            return fahrenheitToCelsius(temperature);
-            break;
-            
-        case 'K': case 'k':
-            return celsiusToKelvin(fahrenheitToCelsius(temperature));
-            break;
-            
-        default:
-            cout << "please, input a valid temperature (C or K)" << endl;
-            return 0;
-            break;
-    }
-}
-
+// Global converter function
 double globalConverter(double temperature, const char unitIn, const char unitOut){
     if(unitIn == unitOut)
     {
@@ -86,52 +34,116 @@ double globalConverter(double temperature, const char unitIn, const char unitOut
     }
     
     if (unitIn == 'C'){
-        return celsiusGlobalConverter(temperature, unitOut);
+        if (unitOut == 'F')
+        {
+            return celsiusToFahrenheit(temperature);
+        } else {
+            return celsiusToKelvin(temperature);
+        }
+    } else if (unitIn == 'F') {
+        if(unitOut == 'C') {
+            return fahrenheitToCelsius(fahrenheitToCelsius(temperature));
+        } else {
+            return celsiusToKelvin(temperature);
+        }
+    } else {
+        if (unitIn == 'C'){
+            return kelvinToCelsius(temperature);
+        } else {
+            return celsiusToKelvin(kelvinToCelsius(temperature));
+        }
     }
-    else if (unitIn == 'F'){
-        return fahrenheitGlobalConverter(temperature, unitOut);
-    }
-    else if (unitIn == 'K'){
-        return kelvinGlobalConverter(temperature, unitOut);
-    }
-    return temperature;
+    return temperature; // Fallback
 }
 
+// unit validifier
 char isValidUnit(string prompt){
     char unit;
     while(true){
-        cout << prompt;
+        cout << prompt << endl;
         cin >> unit;
         if(unit == 'C' || unit == 'F' || unit == 'K')
         {
             return unit;
         }
-        cout << "Invalid unit, Please enter C for Celsius, F for Fahrenheit, and K for Kelvin." << endl;
+        cout << "\nInvalid unit! Enter enter C for Celsius, F for Fahrenheit, and K for Kelvin\n" << endl;
     }
 }
 
-void getUserInput(double& temp, char& unitIn, char& unitOut)
-{
-    cout << "what is the inital temperature (quantity): " << endl;
-    cin >> temp;
-    unitIn = isValidUnit("Enter an input unit (enter C for Celsius, F for Fahrenheit, and K for Kelvin)\n");
-    cout << endl;
-    cout << "Enter an output unit (enter C for Celsius, F for Fahrenheit, and K for Kelvin)\n" << endl;
-    cin >> unitOut;
-}
-
+// gets temperature full name based on initials
 string getTemperatureUnit(char initial)
 {
     if (initial == 'C'){
-        return " Celsius";
+        return "Celsius";
     }
     if (initial == 'F'){
-        return " Fahrenheit";
+        return "Fahrenheit";
     }
     if (initial == 'K'){
-        return " Kelvin";
+        return "Kelvin";
     }
     return "Unknown unit";
+}
+
+// Validates temperature is above absolute zero
+bool isValidTemp(double temp, char unit)
+{
+    if (unit == 'C' || unit == 'K')
+    {
+        return temp >= -273.15;
+    } else if (unit == 'F'){
+        return fahrenheitToCelsius(temp) >= -273.15;
+    }
+    return false;
+}
+
+//format user's input
+void getUserInput(double& temp, char& unitIn, char& unitOut)
+{
+    do{
+        cout << "what is the inital temperature (number): " << endl;
+        cin >> temp;
+        unitIn = isValidUnit("Enter an input unit (enter C for Celsius, F for Fahrenheit, and K for Kelvin):\n");
+        
+        if (!isValidTemp(temp, unitIn)) {
+            cout << "Invalid temperature! Please enter a temperature above absolute zero";
+            cout << endl;
+        }
+    } while(!isValidTemp(temp, unitIn));
+    unitOut = isValidUnit("Enter an output unit (enter C for Celsius, F for Fahrenheit, and K for Kelvin):\n");
+    cout << endl;
+}
+
+double generateRandomTemperature(char unit, double lowerLimit, double upperLimit){
+    double temp;
+    srand(static_cast<unsigned>(time(0)));
+    
+    do{
+        // generates random number in within range
+        temp = static_cast<double>(rand()) / RAND_MAX * (upperLimit - lowerLimit) + lowerLimit;
+        
+        // checks if the generated temperature is valid based on units
+        if(!isValidTemp(temp, unit))
+        {
+            cout << "Generate temperature " << fixed << setprecision(2) << temp << " is invalid for " << unit << ". Please enter valid limits." << endl;
+            
+            cout << "Enter a new lower limit:" << endl;
+            cin >> lowerLimit;
+            
+            cout << "Enter a new upper limit:" << endl;
+            cin >> upperLimit;
+            
+            // ensure upper limit isn't greater then lower limit
+            if(upperLimit <= lowerLimit)
+            {
+                cout << "Upper limit must be greater than lower limit." << endl;
+                continue;
+            }
+        }
+        
+    }while(!isValidTemp(temp, unit)); // repeat unit user properly generates temperature
+    
+    return temp;
 }
 
 int main(){
@@ -140,7 +152,6 @@ int main(){
     double temperature = 0;
     char unitIn;
     char unitOut;
-    
     
     // brief introduction and intructions
     cout << "Hello, welcome to Temperature Converter Plus!" << endl;
@@ -152,71 +163,62 @@ int main(){
         cout << "(2) Fahrenheit to Celsius" << endl;
         cout << "(3) Celsius to Kelvin" << endl;
         cout << "(4) Kelvin to Fahrenheit" << endl;
-        cout << "(5) Kelvin to any temperature" << endl;
-        cout << "(6) Celsius to any temperature" << endl;
-        cout << "(7) Fahrenheit to any temperature" << endl;
-        cout << "(8) any temperature to any temperature" << endl;
-        cout << "(9) Quit\n" << endl;
+        cout << "(5) any temperature to any temperature" << endl;
+        cout << "(6) generate a random temperature" << endl;
+        cout << "(7) Quit\n" << endl;
         cout << "Enter your selection:" << endl;
         cin >> choice;
-        
-        /*cout << << endl;*/
         
         switch(choice)
         {
            case 1:
-                cout << "what is the temperature in Celsius?" << endl;
-                cin >> temperature;
-                cout << "\n" << temperature << " Celsius is " << celsiusToFahrenheit(temperature) << " in Fahrentheit\n" << endl;
+                getUserInput(temperature, unitIn, unitOut);
+                
+                cout << temperature << " Celsius is " << celsiusToFahrenheit(temperature) << " in Fahrentheit\n" << endl;
                 break;
                 
             case 2:
-                cout << "what is the temperature in Fahrenheit?" << endl;
-                cin >> temperature;
+                getUserInput(temperature, unitIn, unitOut);
+                
                 cout << temperature << " Fahrenheit is " << fahrenheitToCelsius(temperature) << " in Celsius\n" << endl;
                 break;
                 
             case 3:
-                cout << "what is the temperature in Celsius?" << endl;
-                cin >> temperature;
-                cout << temperature << " celsius is " << celsiusToKelvin(temperature) << " in Kelvin\n" << endl;
+                getUserInput(temperature, unitIn, unitOut);
+                
+                cout << temperature << " Celsius is " << celsiusToKelvin(temperature) << " in Kelvin\n" << endl;
                 break;
                 
             case 4:
-                cout << "what is the temperature in Celsius?" << endl;
-                cin >> temperature;
+                getUserInput(temperature, unitIn, unitOut);
+                
                 cout << temperature << " Kelvin is " << kelvinToCelsius(temperature) << " in Celsius\n" << endl;
                 break;
                 
             case 5:
                 getUserInput(temperature, unitIn, unitOut);
-                cout << endl;
-                cout << temperature << getTemperatureUnit(unitIn) << " is " <<kelvinGlobalConverter(temperature, unitOut) << getTemperatureUnit(unitOut) << endl;
-                cout << endl;
+                cout << temperature << getTemperatureUnit(unitIn) << " is " << globalConverter(temperature, unitIn, unitOut) << getTemperatureUnit(unitOut) << endl;
                 break;
                 
             case 6:
-                getUserInput(temperature, unitIn, unitOut);
+            {
+                char unit;
+                double lowerLimit;
+                double upperUnit;
+                
+                unit = isValidUnit("Enter the temperature unit (enter C for Celsius, F for Fahrenheit, and K for Kelvin)");
+                cout << "Enter lower limit for temperature:" << endl;
+                cin >> lowerLimit;
+                cout << "Enter upper limit for temperature:" << endl;
+                cin >> upperUnit;
+                
+                double randomTemp = generateRandomTemperature(unit, lowerLimit, upperUnit);
                 cout << endl;
-                cout << temperature << getTemperatureUnit(unitIn) << " is " <<celsiusGlobalConverter(temperature, unitOut) << getTemperatureUnit(unitOut) << endl;
-                cout << endl;
+                cout << "Your random temperature is " << fixed << setprecision(2) << randomTemp << " " << getTemperatureUnit(unit) << endl;
                 break;
+            }
                 
             case 7:
-                getUserInput(temperature, unitIn, unitOut);
-                cout << endl;
-                cout << temperature << getTemperatureUnit(unitIn) << " is " <<fahrenheitGlobalConverter(temperature, unitOut) << getTemperatureUnit(unitOut) << endl;
-                cout << endl;
-                break;
-                
-            case 8:
-                getUserInput(temperature, unitIn, unitOut);
-                cout << endl;
-                cout << temperature << getTemperatureUnit(unitIn) << " is " << globalConverter(temperature, unitIn, unitOut) << getTemperatureUnit(unitOut) << endl;
-                cout << endl;
-                break;
-                
-            case 9:
                 cout << "Thank you for using this calculator have a nice day!" << endl;
                 quit = true;
                 break;
