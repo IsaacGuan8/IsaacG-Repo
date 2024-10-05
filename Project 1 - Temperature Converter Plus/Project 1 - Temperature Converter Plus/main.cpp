@@ -114,6 +114,7 @@ void getUserInput(double& temp, char& unitIn, char& unitOut)
     cout << endl;
 }
 
+// generates random temperature based off of users desired range
 double generateRandomTemperature(char unit, double lowerLimit, double upperLimit){
     double temp;
     srand(static_cast<unsigned>(time(0)));
@@ -141,17 +142,78 @@ double generateRandomTemperature(char unit, double lowerLimit, double upperLimit
             }
         }
         
-    }while(!isValidTemp(temp, unit)); // repeat unit user properly generates temperature
+    }while(!isValidTemp(temp, unit)); // repeat until user properly generates temperature
     
     return temp;
 }
 
+//adds current temperature to list and auto converts based on current list unit
+void addToList(double tempList[], int & currentSize, int listSize, double temp, char currentUnit, char listUnit){
+    if (temp == -9999){
+        cout << "There is currently no temperature to be added to the list."  << endl;
+    } else if(currentSize < listSize){
+        char confirm;
+        cout << "The current unit of the list is " << getTemperatureUnit(currentUnit) << endl;
+        cout << "Do you want to add " << temp << " " << getTemperatureUnit(currentUnit) << " (Y for Yes and N for no)" << endl;
+        cin >> confirm;
+        
+        switch(confirm){
+            case 'Y':
+                if (currentUnit == listUnit){
+                    tempList[currentSize] = temp;
+                    currentSize++;
+                    cout << temp << " " << currentUnit << " has been added to the list." << endl;
+                } else {
+                    double convertedUnit = globalConverter(temp, currentUnit, listUnit);
+                    tempList[currentSize] = convertedUnit;
+                    currentSize++;
+                    cout << "Temperature entered, " << temp << " " << getTemperatureUnit(currentUnit) << " has been converted to " << convertedUnit << " " << listUnit << endl;
+                }
+                break;
+            case 'N':
+                cout << "Temperature not added" << endl;
+                break;
+            default:
+                cout << "invalid input, add temperature aborted" << endl;
+                break;
+        }
+        
+        
+    } else {
+        cout << "List is full, Cannot add more temperatures" << endl;
+    }
+}
+
+//averages the temperatures in list
+double listAverage(double tempList[], int size){
+    double avg = 0;
+    for(int i =0; i <= size; i ++){
+        avg = avg + tempList[i];
+    }
+    return avg/size;
+}
+
+//print all temperatures in list
+void printTemperatures(double tempList[], int size, char unit){
+    for(int i = 0; i <= size; i++){
+        cout << " Temperature is: " << i + 1 << tempList[i] << " " << getTemperatureUnit(unit) << endl;
+    }
+}
+
+char currentUnit;
 int main(){
     bool quit = false;
     int choice = 0;
     double temperature = 0;
+    
     char unitIn;
     char unitOut;
+    
+    double currentTemperature = -9999;
+    double temperatureStorage[100];
+    char listUnit = 'C';
+    int currentSize = 0;
+    int listSize = sizeof(temperatureStorage) / sizeof(temperatureStorage[0]);
     
     // brief introduction and intructions
     cout << "Hello, welcome to Temperature Converter Plus!" << endl;
@@ -159,54 +221,35 @@ int main(){
     
     do{
         // display menu
-        cout << "(1) Celsius to Fahrenheit" << endl;
-        cout << "(2) Fahrenheit to Celsius" << endl;
-        cout << "(3) Celsius to Kelvin" << endl;
-        cout << "(4) Kelvin to Fahrenheit" << endl;
-        cout << "(5) any temperature to any temperature" << endl;
-        cout << "(6) generate a random temperature" << endl;
-        cout << "(7) Quit\n" << endl;
+        cout << "(1) any temperature to any temperature" << endl;
+        cout << "(2) generate a random temperature" << endl;
+        cout << "(3) add current temperature to list (auto converts to current unit and can add up to 100 temperatures)" << endl;
+        cout << "(4) change unit of list" << endl;
+        cout << "(5) list average" << endl;
+        cout << "(6) Quit\n" << endl;
         cout << "Enter your selection:" << endl;
         cin >> choice;
         
         switch(choice)
         {
-           case 1:
+            case 1:
+            {
                 getUserInput(temperature, unitIn, unitOut);
+                double convertedTemp = globalConverter(temperature, unitIn, unitOut);
+                cout << temperature << " " << getTemperatureUnit(unitIn) << " is " << convertedTemp << " " << getTemperatureUnit(unitOut) << endl;
                 
-                cout << temperature << " Celsius is " << celsiusToFahrenheit(temperature) << " in Fahrentheit\n" << endl;
+                currentTemperature = convertedTemp;
+                currentUnit = unitOut;
                 break;
-                
+            }
             case 2:
-                getUserInput(temperature, unitIn, unitOut);
-                
-                cout << temperature << " Fahrenheit is " << fahrenheitToCelsius(temperature) << " in Celsius\n" << endl;
-                break;
-                
-            case 3:
-                getUserInput(temperature, unitIn, unitOut);
-                
-                cout << temperature << " Celsius is " << celsiusToKelvin(temperature) << " in Kelvin\n" << endl;
-                break;
-                
-            case 4:
-                getUserInput(temperature, unitIn, unitOut);
-                
-                cout << temperature << " Kelvin is " << kelvinToCelsius(temperature) << " in Celsius\n" << endl;
-                break;
-                
-            case 5:
-                getUserInput(temperature, unitIn, unitOut);
-                cout << temperature << getTemperatureUnit(unitIn) << " is " << globalConverter(temperature, unitIn, unitOut) << getTemperatureUnit(unitOut) << endl;
-                break;
-                
-            case 6:
             {
                 char unit;
                 double lowerLimit;
                 double upperUnit;
                 
                 unit = isValidUnit("Enter the temperature unit (enter C for Celsius, F for Fahrenheit, and K for Kelvin)");
+                cout << endl;
                 cout << "Enter lower limit for temperature:" << endl;
                 cin >> lowerLimit;
                 cout << "Enter upper limit for temperature:" << endl;
@@ -215,10 +258,22 @@ int main(){
                 double randomTemp = generateRandomTemperature(unit, lowerLimit, upperUnit);
                 cout << endl;
                 cout << "Your random temperature is " << fixed << setprecision(2) << randomTemp << " " << getTemperatureUnit(unit) << endl;
+                currentTemperature = randomTemp;
+                currentUnit = unit;
+                
                 break;
             }
                 
-            case 7:
+            case 3:
+                addToList(temperatureStorage, currentSize, listSize, currentTemperature, currentUnit, listUnit);
+                break;
+                
+            case 4:
+                break;
+                
+            case 5:
+                break;
+            case 6:
                 cout << "Thank you for using this calculator have a nice day!" << endl;
                 quit = true;
                 break;

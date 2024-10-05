@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A0CD3F02CADC35C00330C54 /* max.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CD3EE2CADC35C00330C54 /* max.cpp */; };
+		6A0CD3F32CADC8D300330C54 /* min.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CD3F12CADC8D300330C54 /* min.cpp */; };
+		6A0CD3F62CADC9D800330C54 /* average.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CD3F42CADC9D800330C54 /* average.cpp */; };
+		6A0CD3F92CADCA7D00330C54 /* aboveAverage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CD3F72CADCA7D00330C54 /* aboveAverage.cpp */; };
+		6A0CD3FC2CADCFE300330C54 /* comparison.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CD3FA2CADCFE300330C54 /* comparison.cpp */; };
 		6AC945FB2C88CD1600AADDC2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AC945FA2C88CD1600AADDC2 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +28,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6AC945F72C88CD1600AADDC2 /* ClassLecture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ClassLecture; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0CD3EE2CADC35C00330C54 /* max.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = max.cpp; sourceTree = "<group>"; };
+		6A0CD3EF2CADC35C00330C54 /* max.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = max.hpp; sourceTree = "<group>"; };
+		6A0CD3F12CADC8D300330C54 /* min.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = min.cpp; sourceTree = "<group>"; };
+		6A0CD3F22CADC8D300330C54 /* min.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = min.hpp; sourceTree = "<group>"; };
+		6A0CD3F42CADC9D800330C54 /* average.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = average.cpp; sourceTree = "<group>"; };
+		6A0CD3F52CADC9D800330C54 /* average.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = average.hpp; sourceTree = "<group>"; };
+		6A0CD3F72CADCA7D00330C54 /* aboveAverage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = aboveAverage.cpp; sourceTree = "<group>"; };
+		6A0CD3F82CADCA7D00330C54 /* aboveAverage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = aboveAverage.hpp; sourceTree = "<group>"; };
+		6A0CD3FA2CADCFE300330C54 /* comparison.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = comparison.cpp; sourceTree = "<group>"; };
+		6A0CD3FB2CADCFE300330C54 /* comparison.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = comparison.hpp; sourceTree = "<group>"; };
+		6AC945F72C88CD1600AADDC2 /* Teacher Class Manager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Teacher Class Manager"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AC945FA2C88CD1600AADDC2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -38,10 +53,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A0CD3E92CADC2B800330C54 /* max */ = {
+			isa = PBXGroup;
+			children = (
+				6A0CD3EE2CADC35C00330C54 /* max.cpp */,
+				6A0CD3EF2CADC35C00330C54 /* max.hpp */,
+			);
+			path = max;
+			sourceTree = "<group>";
+		};
+		6A0CD3EA2CADC2C100330C54 /* min */ = {
+			isa = PBXGroup;
+			children = (
+				6A0CD3F12CADC8D300330C54 /* min.cpp */,
+				6A0CD3F22CADC8D300330C54 /* min.hpp */,
+			);
+			path = min;
+			sourceTree = "<group>";
+		};
+		6A0CD3EB2CADC2CE00330C54 /* average */ = {
+			isa = PBXGroup;
+			children = (
+				6A0CD3F42CADC9D800330C54 /* average.cpp */,
+				6A0CD3F52CADC9D800330C54 /* average.hpp */,
+			);
+			path = average;
+			sourceTree = "<group>";
+		};
+		6A0CD3EC2CADC2E400330C54 /* aboveAverage */ = {
+			isa = PBXGroup;
+			children = (
+				6A0CD3F72CADCA7D00330C54 /* aboveAverage.cpp */,
+				6A0CD3F82CADCA7D00330C54 /* aboveAverage.hpp */,
+			);
+			path = aboveAverage;
+			sourceTree = "<group>";
+		};
+		6A0CD3ED2CADC33000330C54 /* comparison */ = {
+			isa = PBXGroup;
+			children = (
+				6A0CD3FA2CADCFE300330C54 /* comparison.cpp */,
+				6A0CD3FB2CADCFE300330C54 /* comparison.hpp */,
+			);
+			path = comparison;
+			sourceTree = "<group>";
+		};
 		6AC945EE2C88CD1600AADDC2 = {
 			isa = PBXGroup;
 			children = (
-				6AC945F92C88CD1600AADDC2 /* ClassLecture */,
+				6AC945F92C88CD1600AADDC2 /* Teacher Class Manager */,
 				6AC945F82C88CD1600AADDC2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,25 +109,30 @@
 		6AC945F82C88CD1600AADDC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AC945F72C88CD1600AADDC2 /* ClassLecture */,
+				6AC945F72C88CD1600AADDC2 /* Teacher Class Manager */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6AC945F92C88CD1600AADDC2 /* ClassLecture */ = {
+		6AC945F92C88CD1600AADDC2 /* Teacher Class Manager */ = {
 			isa = PBXGroup;
 			children = (
+				6A0CD3ED2CADC33000330C54 /* comparison */,
+				6A0CD3EC2CADC2E400330C54 /* aboveAverage */,
+				6A0CD3EB2CADC2CE00330C54 /* average */,
+				6A0CD3EA2CADC2C100330C54 /* min */,
+				6A0CD3E92CADC2B800330C54 /* max */,
 				6AC945FA2C88CD1600AADDC2 /* main.cpp */,
 			);
-			path = ClassLecture;
+			path = "Teacher Class Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6AC945F62C88CD1600AADDC2 /* ClassLecture */ = {
+		6AC945F62C88CD1600AADDC2 /* Teacher Class Manager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AC945FE2C88CD1600AADDC2 /* Build configuration list for PBXNativeTarget "ClassLecture" */;
+			buildConfigurationList = 6AC945FE2C88CD1600AADDC2 /* Build configuration list for PBXNativeTarget "Teacher Class Manager" */;
 			buildPhases = (
 				6AC945F32C88CD1600AADDC2 /* Sources */,
 				6AC945F42C88CD1600AADDC2 /* Frameworks */,
@@ -77,9 +142,9 @@
 			);
 			dependencies = (
 			);
-			name = ClassLecture;
+			name = "Teacher Class Manager";
 			productName = ClassLecture;
-			productReference = 6AC945F72C88CD1600AADDC2 /* ClassLecture */;
+			productReference = 6AC945F72C88CD1600AADDC2 /* Teacher Class Manager */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +161,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6AC945F22C88CD1600AADDC2 /* Build configuration list for PBXProject "ClassLecture" */;
+			buildConfigurationList = 6AC945F22C88CD1600AADDC2 /* Build configuration list for PBXProject "Teacher Class Manager" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,7 +174,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AC945F62C88CD1600AADDC2 /* ClassLecture */,
+				6AC945F62C88CD1600AADDC2 /* Teacher Class Manager */,
 			);
 		};
 /* End PBXProject section */
@@ -119,7 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0CD3F32CADC8D300330C54 /* min.cpp in Sources */,
+				6A0CD3F02CADC35C00330C54 /* max.cpp in Sources */,
+				6A0CD3FC2CADCFE300330C54 /* comparison.cpp in Sources */,
 				6AC945FB2C88CD1600AADDC2 /* main.cpp in Sources */,
+				6A0CD3F62CADC9D800330C54 /* average.cpp in Sources */,
+				6A0CD3F92CADCA7D00330C54 /* aboveAverage.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +330,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6AC945F22C88CD1600AADDC2 /* Build configuration list for PBXProject "ClassLecture" */ = {
+		6AC945F22C88CD1600AADDC2 /* Build configuration list for PBXProject "Teacher Class Manager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AC945FC2C88CD1600AADDC2 /* Debug */,
@@ -269,7 +339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AC945FE2C88CD1600AADDC2 /* Build configuration list for PBXNativeTarget "ClassLecture" */ = {
+		6AC945FE2C88CD1600AADDC2 /* Build configuration list for PBXNativeTarget "Teacher Class Manager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AC945FF2C88CD1600AADDC2 /* Debug */,
