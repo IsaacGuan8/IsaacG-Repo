@@ -5,6 +5,8 @@
 
 using namespace std;
 
+char currentUnit;
+
 // Temperature convertion functions
 double celsiusToFahrenheit(double celsius)
 {
@@ -186,21 +188,66 @@ void addToList(double tempList[], int & currentSize, int listSize, double temp, 
 
 //averages the temperatures in list
 double listAverage(double tempList[], int size){
-    double avg = 0;
-    for(int i =0; i <= size; i ++){
-        avg = avg + tempList[i];
+    if (size == 0){
+        cout << "There are no temperatures stored in the list currently" << endl;
+        return 0;
+    } else {
+        double avg = 0;
+        for(int i =0; i <= size; i ++){
+            avg = avg + tempList[i];
+        }
+        return avg/size;
     }
-    return avg/size;
 }
 
 //print all temperatures in list
 void printTemperatures(double tempList[], int size, char unit){
-    for(int i = 0; i <= size; i++){
-        cout << " Temperature is: " << i + 1 << tempList[i] << " " << getTemperatureUnit(unit) << endl;
+    if (size == 0){
+        cout << endl;
+        cout << "There are no temperatures stored in the list currently" << endl;
+        cout << endl;
+        return;
+    } else {
+        for(int i = 0; i <= size; i++){
+            cout << " Temperature is: " << i + 1 << tempList[i] << " " << getTemperatureUnit(unit) << endl;
+        }
     }
 }
 
-char currentUnit;
+// changes the temperature units of list to desired unit
+void changeListTemperature(char &currentUnit, char newUnit){
+
+    while (currentUnit == newUnit){
+        cout << "Redudant Conversion, Please choose a unit that is not "<< getTemperatureUnit(currentUnit) << " " << endl;
+        cout << "Please enter a new unit that is not " << getTemperatureUnit(currentUnit) << " (C for Celsius, F for Fahrenheit, K for Kelvin)" <<endl;
+        cin >> newUnit;
+        cout << endl;
+    }
+    
+    char confirmation;
+    while(true){
+        
+        cout << "The current unit is " << getTemperatureUnit(currentUnit) << endl;
+        cout << "Are you sure You want to change the unit? (Y for Yes, N for No)" << endl;
+        cin >> confirmation;
+        
+        if(confirmation == 'Y' || confirmation == 'y'){
+            currentUnit = newUnit;
+            cout << "The new temperature list unit is " << getTemperatureUnit(newUnit) << endl;
+            cout << endl;
+            break;
+        } else if (confirmation == 'N' || confirmation == 'n'){
+            cout << "Unit is unchange, operation aborted" << endl;
+            cout << endl;
+            break;
+        } else {
+            cout << "Invalid input, please enter Y for yes N for no" << endl;
+            cout << endl;
+        }
+    }
+}
+
+
 int main(){
     bool quit = false;
     int choice = 0;
@@ -209,9 +256,10 @@ int main(){
     char unitIn;
     char unitOut;
     
+    char listUnit = 'C';
     double currentTemperature = -9999;
     double temperatureStorage[100];
-    char listUnit = 'C';
+    
     int currentSize = 0;
     int listSize = sizeof(temperatureStorage) / sizeof(temperatureStorage[0]);
     
@@ -226,7 +274,8 @@ int main(){
         cout << "(3) add current temperature to list (auto converts to current unit and can add up to 100 temperatures)" << endl;
         cout << "(4) change unit of list" << endl;
         cout << "(5) list average" << endl;
-        cout << "(6) Quit\n" << endl;
+        cout << "(6) display list of current temperatures" << endl;
+        cout << "(7) Quit\n" << endl;
         cout << "Enter your selection:" << endl;
         cin >> choice;
         
@@ -269,11 +318,25 @@ int main(){
                 break;
                 
             case 4:
+            {
+                char newUnit;
+                cout << "what should the new list unit be?" << endl;
+                cin >> newUnit;
+                changeListTemperature(listUnit, newUnit);
+                listUnit = newUnit;
                 break;
-                
+            }
             case 5:
+            {
+                double average = listAverage(temperatureStorage, currentSize);
+                cout << "The current average of the the list is " << average << " " << getTemperatureUnit(currentUnit) << endl;
                 break;
+            }
             case 6:
+                printTemperatures(temperatureStorage, currentSize, currentUnit);
+                break;
+
+            case 7:
                 cout << "Thank you for using this calculator have a nice day!" << endl;
                 quit = true;
                 break;
