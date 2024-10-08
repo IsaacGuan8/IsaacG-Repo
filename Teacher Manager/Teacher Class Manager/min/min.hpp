@@ -8,7 +8,7 @@
 #ifndef min_hpp
 #define min_hpp
 
-namespace min{
+namespace minimun{
     double grade(double arr[], int classSize);
 }
 

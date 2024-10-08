@@ -1,14 +1,15 @@
 //
-//  average.hpp
+//  max.hpp
 //  ClassLecture
 //
 //  Created by Isaac Guan on 10/2/24.
 //
 
-#ifndef average_hpp
-#define average_hpp
-namespace average{
+#ifndef max_hpp
+#define max_hpp
+
+namespace maximum{
     double grade(double arr[], int classSize);
 }
 
-#endif /* average_hpp */
+#endif /* max_hpp */
