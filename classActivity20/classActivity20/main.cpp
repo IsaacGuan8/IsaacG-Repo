@@ -14,7 +14,6 @@ int main(){
         cin >> num;
         arr[count] = num;
         if(cin.fail()){
-            
             break;
         }
         count++;
