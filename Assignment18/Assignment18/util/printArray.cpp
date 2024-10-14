@@ -5,7 +5,6 @@
 //  Created by Isaac Guan on 10/7/24.
 //
 
-#include "printArray.hpp"
 #include <iostream>
 using std::cout;
 using std::endl;
