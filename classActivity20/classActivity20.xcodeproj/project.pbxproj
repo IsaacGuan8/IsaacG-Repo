@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A6F00DB2CBDBCA400A637E9 /* inputNumbers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F00D92CBDBCA400A637E9 /* inputNumbers.cpp */; };
+		6A6F00E12CBDBEE900A637E9 /* resizeArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F00DF2CBDBEE900A637E9 /* resizeArray.cpp */; };
+		6A6F00E82CBDC0A000A637E9 /* getSum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F00E62CBDC0A000A637E9 /* getSum.cpp */; };
 		6ACC95FE2CBD868300CFE9C9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ACC95FD2CBD868300CFE9C9 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +26,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6A6F00D92CBDBCA400A637E9 /* inputNumbers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = inputNumbers.cpp; sourceTree = "<group>"; };
+		6A6F00DA2CBDBCA400A637E9 /* inputNumbers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = inputNumbers.hpp; sourceTree = "<group>"; };
+		6A6F00DF2CBDBEE900A637E9 /* resizeArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = resizeArray.cpp; sourceTree = "<group>"; };
+		6A6F00E02CBDBEE900A637E9 /* resizeArray.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = resizeArray.hpp; sourceTree = "<group>"; };
+		6A6F00E62CBDC0A000A637E9 /* getSum.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = getSum.cpp; sourceTree = "<group>"; };
+		6A6F00E72CBDC0A000A637E9 /* getSum.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = getSum.hpp; sourceTree = "<group>"; };
 		6ACC95FA2CBD868300CFE9C9 /* classActivity20 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = classActivity20; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACC95FD2CBD868300CFE9C9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +47,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A6F00D52CBDA61900A637E9 /* resizeArray */ = {
+			isa = PBXGroup;
+			children = (
+				6A6F00DF2CBDBEE900A637E9 /* resizeArray.cpp */,
+				6A6F00E02CBDBEE900A637E9 /* resizeArray.hpp */,
+			);
+			path = resizeArray;
+			sourceTree = "<group>";
+		};
+		6A6F00D82CBDBC8000A637E9 /* inputNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				6A6F00D92CBDBCA400A637E9 /* inputNumbers.cpp */,
+				6A6F00DA2CBDBCA400A637E9 /* inputNumbers.hpp */,
+			);
+			path = inputNumbers;
+			sourceTree = "<group>";
+		};
+		6A6F00E52CBDC07100A637E9 /* getSum */ = {
+			isa = PBXGroup;
+			children = (
+				6A6F00E62CBDC0A000A637E9 /* getSum.cpp */,
+				6A6F00E72CBDC0A000A637E9 /* getSum.hpp */,
+			);
+			path = getSum;
+			sourceTree = "<group>";
+		};
 		6ACC95F12CBD868300CFE9C9 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +93,9 @@
 		6ACC95FC2CBD868300CFE9C9 /* classActivity20 */ = {
 			isa = PBXGroup;
 			children = (
+				6A6F00D52CBDA61900A637E9 /* resizeArray */,
+				6A6F00D82CBDBC8000A637E9 /* inputNumbers */,
+				6A6F00E52CBDC07100A637E9 /* getSum */,
 				6ACC95FD2CBD868300CFE9C9 /* main.cpp */,
 			);
 			path = classActivity20;
@@ -119,7 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6F00E82CBDC0A000A637E9 /* getSum.cpp in Sources */,
 				6ACC95FE2CBD868300CFE9C9 /* main.cpp in Sources */,
+				6A6F00E12CBDBEE900A637E9 /* resizeArray.cpp in Sources */,
+				6A6F00DB2CBDBCA400A637E9 /* inputNumbers.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,9 +6,24 @@
 //
 
 #include <iostream>
+#include "./inputNumbers/inputNumbers.hpp"
+#include "./getSum/getSum.hpp"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+using namespace input;
+using namespace sum;
+
+int main() {
+    int size = 3;
+    auto arr = make_unique<int[]>(size);
+    int count = 0;
+    
+    inputNumbers(arr, count, size);
+    
+    int total = getSum(arr, count);
+    
+    cout << "The sum of the list is: " << endl;
+    cout << total << endl;
+    
     return 0;
 }
