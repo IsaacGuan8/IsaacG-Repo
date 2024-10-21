@@ -1,6 +1,6 @@
 
 #include<iostream>
-#include "./resizeArray/resizeArray.hpp"
+#include "resizeArray.hpp"
 
 
 

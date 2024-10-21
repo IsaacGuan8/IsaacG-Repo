@@ -8,9 +8,6 @@
 #ifndef printArray_hpp
 #define printArray_hpp
 
-#include <stdio.h>
-#include <string>
-
 namespace util{
     void printArray(int arr[], int size);
 }

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "./linearSearch/linearSearch.hpp"
+#include "./linearSearch/linearSearch.h"
 using namespace std;
 
 /*int linearSearch(int arr[], int size, int target){

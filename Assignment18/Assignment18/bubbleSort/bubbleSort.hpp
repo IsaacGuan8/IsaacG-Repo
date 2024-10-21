@@ -8,8 +8,6 @@
 #ifndef bubbleSort_hpp
 #define bubbleSort_hpp
 
-#include <stdio.h>
-
 namespace sort{
     void bubbleSort(int arr[], int size);
 }
