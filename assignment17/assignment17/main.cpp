@@ -2,18 +2,6 @@
 #include "./linearSearch/linearSearch.h"
 using namespace std;
 
-/*int linearSearch(int arr[], int size, int target){
-    int index = 0;
-    
-    while (index < size){
-        if (arr[index] == target){
-            return index;
-        }
-        index++;
-    }
-    return -1;
-}*/
-
 int main(){
     int nums[] = {1, 7, 3 , 9, 8};
     int arraySize = sizeof(nums)/sizeof(nums[0]);

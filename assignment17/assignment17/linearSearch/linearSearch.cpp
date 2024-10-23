@@ -1,13 +1,13 @@
-
-
-int linearSearch(int arr[], int size, int target){
-    int index = 0;
-    
-    while (index < size){
-        if (arr[index] == target){
-            return index;
+namespace search{
+    int linearSearch(int arr[], int size, int target){
+        int index = 0;
+        
+        while (index < size){
+            if (arr[index] == target){
+                return index;
+            }
+            index++;
         }
-        index++;
+        return -1;
     }
-    return -1;
 }
