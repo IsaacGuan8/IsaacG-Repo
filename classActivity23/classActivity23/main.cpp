@@ -1,14 +1,20 @@
-//
-//  main.cpp
-//  classActivity23
-//
-//  Created by Isaac Guan on 10/20/24.
-//
-
 #include <iostream>
+#include "./customerValidator/customerValidator.hpp"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int main() {
+    string customerNumber;
+    
+    cout << "Enter the customer number: " << endl;
+    cin >> customerNumber;
+    
+    if(customerValidator::isValidNumber(customerNumber)){
+        cout << "Customer number is valid" << endl;
+    } else {
+        cout << "Not valid, must be 2 letter followed by 4 digits" << endl;
+    }
+    
     return 0;
 }
+

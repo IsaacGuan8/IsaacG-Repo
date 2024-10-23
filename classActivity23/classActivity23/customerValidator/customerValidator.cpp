@@ -1,8 +1,21 @@
-//
-//  customerValidator.cpp
-//  classActivity23
-//
-//  Created by Isaac Guan on 10/20/24.
-//
-
 #include "customerValidator.hpp"
+
+namespace customerValidator{
+    bool isValidNumber(const std::string& customerNumber){
+        if (customerNumber.length() != 6){
+            return false;
+        }
+        
+        if(!std::isalpha(customerNumber[0]) && std::isalpha(customerNumber[1])){
+            return false;
+        }
+        
+        for(int i = 2; i < 6; i++){
+            if(!std::isdigit(customerNumber[i])){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}

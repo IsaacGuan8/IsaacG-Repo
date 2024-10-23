@@ -1,13 +1,11 @@
-//
-//  customerValidator.hpp
-//  classActivity23
-//
-//  Created by Isaac Guan on 10/20/24.
-//
-
 #ifndef customerValidator_hpp
 #define customerValidator_hpp
 
-#include <stdio.h>
+#include <string>
 
-#endif /* customerValidator_hpp */
+namespace customerValidator{
+    bool isValidNumber(const std::string& customerNumber);
+}
+
+#endif
+
