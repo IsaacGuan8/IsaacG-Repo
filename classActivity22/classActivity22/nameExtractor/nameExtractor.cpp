@@ -1,7 +1,9 @@
-#include "nameExtractor.hpp"
+#include <string>
+
+using std::string;
 
 namespace nameExtractor{
-    void getFirstLastName(const std::string& fullName, std::string& firstName, std::string& lastName){
+    void getFirstLastName(const string& fullName, string& firstName, string& lastName){
         int spaceIndex = -1;
         
         for (int i = 0; i < fullName.length(); i ++){
