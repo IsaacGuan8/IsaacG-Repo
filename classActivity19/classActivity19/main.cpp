@@ -1,10 +1,3 @@
-//
-//  main.cpp
-//  classActivity19
-//
-//  Created by Isaac Guan on 10/8/24.
-//
-
 #include <iostream>
 #include "./pointerSwap/pointerSwap.hpp"
 

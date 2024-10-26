@@ -1,10 +1,3 @@
-//
-//  pointerSwap.cpp
-//  classActivity19
-//
-//  Created by Isaac Guan on 10/8/24.
-//
-
 #include "pointerSwap.hpp"
 
 namespace swap{
