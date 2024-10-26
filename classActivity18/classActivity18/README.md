@@ -1,0 +1,2 @@
+# Sorting With Bubble Sort
+This small project is designed to sort through an example array from smallest to largest with the help of bubble sort algorithm. Bubble sort compares repeatedly thought out the array and swaps the elements if they are in the wrong order. For each step of the sorting process the programs outputs the current step to help visually track the current step of the bubble sort algorithm.

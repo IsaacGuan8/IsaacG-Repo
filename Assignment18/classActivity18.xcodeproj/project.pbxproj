@@ -47,7 +47,7 @@
 		6ACC95992CB4E4EC00CFE9C9 = {
 			isa = PBXGroup;
 			children = (
-				6ACC95A42CB4E4EC00CFE9C9 /* Assignment18 */,
+				6ACC95A42CB4E4EC00CFE9C9 /* classActivity18 */,
 				6ACC95A32CB4E4EC00CFE9C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,14 +60,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6ACC95A42CB4E4EC00CFE9C9 /* Assignment18 */ = {
+		6ACC95A42CB4E4EC00CFE9C9 /* classActivity18 */ = {
 			isa = PBXGroup;
 			children = (
 				6ACC95B62CB5057300CFE9C9 /* util */,
 				6ACC95AF2CB4F18C00CFE9C9 /* bubbleSort */,
 				6ACC95A52CB4E4EC00CFE9C9 /* main.cpp */,
 			);
-			path = Assignment18;
+			path = classActivity18;
 			sourceTree = "<group>";
 		};
 		6ACC95AF2CB4F18C00CFE9C9 /* bubbleSort */ = {
@@ -122,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6ACC959D2CB4E4EC00CFE9C9 /* Build configuration list for PBXProject "Assignment18" */;
+			buildConfigurationList = 6ACC959D2CB4E4EC00CFE9C9 /* Build configuration list for PBXProject "classActivity1818" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -288,7 +288,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6ACC959D2CB4E4EC00CFE9C9 /* Build configuration list for PBXProject "Assignment18" */ = {
+		6ACC959D2CB4E4EC00CFE9C9 /* Build configuration list for PBXProject "classActivity1818" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6ACC95A72CB4E4EC00CFE9C9 /* Debug */,

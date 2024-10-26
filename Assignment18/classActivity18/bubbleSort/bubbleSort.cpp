@@ -2,9 +2,6 @@
 //  bubbleSort.cpp
 //  Assignment18
 //
-//  Created by Isaac Guan on 10/7/24.
-//
-
 #include "printArray.hpp"
 #include <iostream>
 
