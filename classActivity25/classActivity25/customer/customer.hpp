@@ -2,16 +2,14 @@
 #define customer_hpp
 
 #include <string>
-using std::string;
-namespace CustomerDataManager{
-    struct Address{
-        string streetName;
-        string cityName;
-        short zipCode;
-    };
+#include "customerAddress.hpp"
 
+using std::string;
+
+
+namespace CustomerDataManager{
     struct Customer{
-        short identifiction;
+        int identifiction;
         string name;
         string email;
         Address address;

@@ -8,7 +8,6 @@ using std::string;
 
 namespace customerManager{
     void getCustomerInfo(CustomerDataManager::Customer& customer);
-    void printCustomerInfo(const CustomerDataManager::Customer& customer);
 }
 
 #endif

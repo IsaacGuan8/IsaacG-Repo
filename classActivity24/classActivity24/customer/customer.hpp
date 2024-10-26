@@ -5,9 +5,9 @@
 using std::string;
 
 struct Customer{
+    int identifiction;
     string name;
     string email;
-    short identifiction;
 };
 
 #endif

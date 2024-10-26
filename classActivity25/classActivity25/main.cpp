@@ -1,14 +1,15 @@
 #include <iostream>
 #include "./customerManager/customerManager.hpp"
+#include "./printCustomerData/printCustomerData.hpp"
 
 using namespace std;
 
-int main() {
+int main(){
     CustomerDataManager::Customer customer;
     
     customerManager::getCustomerInfo(customer);
     cout << endl;
-    customerManager::printCustomerInfo(customer);
+    printData::printCustomerData(customer);
     
     return 0;
 }
