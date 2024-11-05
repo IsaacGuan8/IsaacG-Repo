@@ -1,0 +1,2 @@
+# Bookstore Inventory Management System
+A simple project uses a console to manage a bookstore's inventory. This system has functions that allow bookstore staff to add books, find books by title, and display the current bookstore's inventory. There is also operator overloading with insertion to print out the books information neatly. A Book structure is used to store the attributes of the books and a Enum for menu choices to help bookstore staff to select the different options using numbers.
