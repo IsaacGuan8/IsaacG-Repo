@@ -1,21 +1,8 @@
-//
-//  comparison.cpp
-//  ClassLecture
-//
-//  Created by Isaac Guan on 10/2/24.
-//
-
 #include <iostream>
 #include<string>
 
-using namespace std;
+using std::cin, std::cout, std::string, std::endl;
 
-
-
-//using std::cin;
-//using std::cout;
-//using std::string;
-//using std::endl;
 namespace comparison{
     void grade (std::string students[], double grades[], int size){
         string student1;

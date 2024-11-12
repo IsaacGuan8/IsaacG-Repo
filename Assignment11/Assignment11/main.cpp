@@ -6,8 +6,11 @@ int main() {
     int b;
     int larger;
     
-    cout << "Please enter two number: " << endl;
-    cin >> a >> b;
+    cout << "Enter first number: " << endl;
+    cin >> a;
+    
+    cout << "Enter second number: " << endl;
+    cin >> b;
     
     if (a > b) {
         larger = a;
@@ -20,8 +23,11 @@ int main() {
     int c;
     int d;
     
-    cout << "Please enter two more number: " << endl;
-    cin >> c >> d;
+    cout << "Enter another first number: " << endl;
+    cin >> c;
+    
+    cout << "Enter another second number: " << endl;
+    cin >> d;
     
     larger = (c > d) ? c : d;
     

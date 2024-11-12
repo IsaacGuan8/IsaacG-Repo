@@ -1,9 +1,4 @@
-//
-//  aboveAverage.cpp
-//  ClassLecture
-//
-//  Created by Isaac Guan on 10/2/24.
-//
+
 #include <iostream>
 #include <string>
 namespace aboveAverage{

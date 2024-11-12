@@ -1,10 +1,3 @@
-//
-//  comparison.hpp
-//  ClassLecture
-//
-//  Created by Isaac Guan on 10/2/24.
-//
-
 #ifndef comparison_hpp
 #define comparison_hpp
 #include <string>
@@ -14,4 +7,4 @@ namespace comparison{
 }
 
 
-#endif /* comparison_hpp */
+#endif

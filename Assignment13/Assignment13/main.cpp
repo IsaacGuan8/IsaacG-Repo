@@ -4,8 +4,13 @@ using namespace std;
 
 int main() {
     int numTemps;
-    cout<< "how many temperatures are there?: ";
+    cout << "how many temperatures are there?: " << endl;
     cin >> numTemps;
+    
+    while (numTemps <= 0){
+        cout << "Please input a valid postive number" << endl;
+        cin >> numTemps;
+    }
     
     double temps[numTemps];
     
@@ -17,7 +22,7 @@ int main() {
         
     double tempsAdded = 0;
     
-    for(int i = 0; i <= sizeof(temps)/sizeof(double);i++) {
+    for(int i = 0; i < numTemps; i++) {
         tempsAdded += temps[i];
     }
     

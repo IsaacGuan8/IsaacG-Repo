@@ -9,7 +9,7 @@ int main() {
     int guess = 0;
     
     while(guess != secret){
-        cout << "what is the secret number?: "<< endl;
+        cout << "what is the secret number? (between 1 - 100)"<< endl;
         cin >> guess;
         
         if(guess > secret){
