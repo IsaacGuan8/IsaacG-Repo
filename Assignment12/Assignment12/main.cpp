@@ -8,6 +8,11 @@ int main() {
     cout << "What postive number do you want to factorial?: " << endl;
     cin >> num;
     
+    while(num < 0){
+        cout << "Please enter valid number 0 or greater." << endl;
+        cin >> num;
+    }
+    
     for(int i = 1; i <= num; i++){
         factorial *= i;
     }
