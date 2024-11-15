@@ -15,6 +15,11 @@ int main(){
     cout<<"How many students are in your class?" << endl;
     cin >> classSize;
     
+    while(classSize <= 0){
+        cout << "Please re-enter a valid class size" << endl;
+        cin >> classSize;
+    }
+    
     double studentsGrade[classSize];
     string studentsName[classSize];
     

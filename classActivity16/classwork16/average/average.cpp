@@ -1,10 +1,10 @@
 namespace average{
     double grade(double grades[], int classSize)
     {
-        double average = 0;
+        double gradeSum = 0;
         for(int i = 0 ; i < classSize ;i++){
-            average += grades[i];
+            gradeSum += grades[i];
         }
-        return average / classSize;
+        return gradeSum / classSize;
     }
 }
