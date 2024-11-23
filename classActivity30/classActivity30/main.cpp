@@ -1,13 +1,16 @@
 #include <iostream>
 #include "textbox/textbox.hpp"
-
 using namespace std;
 
 int main() {
-    TextBox newTextBox;
+    TextBox boxOne;
+    boxOne.printValue();
     
-    newTextBox.setValue("hello!");
+    TextBox boxTwo("Hello");
+    boxTwo.printValue();
     
-    cout << newTextBox.getValue() << endl;
+    boxOne.setValue("New Value");
+    boxOne.printValue();
+    
     return 0;
 }

@@ -7,8 +7,11 @@ using std::string;
 
 class TextBox{
 public:
+    TextBox() = default;
+    explicit TextBox(const string&str);
     string getValue();
-    void setValue(string value);
+    void setValue(const string& value);
+    void printValue();
 private:
     string value;
 };
