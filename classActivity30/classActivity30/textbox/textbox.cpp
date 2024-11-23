@@ -1,7 +1,8 @@
 #include "textbox.hpp"
 #include <iostream>
 
-using std::cout, std:: endl;
+using std::cout, std::endl, std::string;
+
 string TextBox::getValue(){
     return value;
 }
@@ -14,4 +15,4 @@ void TextBox::printValue(){
     cout << "The value is: " << value << endl;
 }
 
-TextBox::TextBox(const std::string& str) : value(str) {}
+TextBox::TextBox(const string& str) : value(str) {}
