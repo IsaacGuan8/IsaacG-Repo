@@ -1,2 +1,2 @@
-##Multiple Parent Inheritance with Time and Date
+# Multiple Parent Inheritance with Time and Date
 This small programs uses multiple inheritance from parents classes Time and Date to a child class DateTime. This also include a method that years, months, or days for Date class and hours, minutes, seconds for the Time class respectively. There is also a method normalize in both which helps when units got over their limit and convert them to the next unit. There is also a method in DateTime that computes the difference between the two DateTime objects. The DateTime class includes a format method that displays the date and time in a customizable format.
