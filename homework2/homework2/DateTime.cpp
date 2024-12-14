@@ -3,8 +3,9 @@
 #include <iomanip>
 #include <sstream>
 #include <cmath>
+#include <cstddef>
 
-using std::string, std::ostringstream, std::setw, std::setfill, std::abs, std::cout, std::endl;
+using std::string, std::ostringstream, std::setw, std::setfill, std::abs, std::cout, std::endl, std::size_t;
 
 DateTime::DateTime(int year, int month, int day, int hour, int minute, int second) : Date(year, month, day), Time(hour, minute, second){};
 
